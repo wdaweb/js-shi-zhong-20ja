@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2</title>
+</head>
+<style>
+    body {
+        background-image: url('https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1466&q=80');
+        background-repeat: no-repeat;
+        margin: auto;
+    }
+
+    #bg {
+        width: 140px;
+        height: 200px;
+        border-radius: 50% 50%;
+        border: 2px red;
+        box-shadow: 0 0 5px rgb(59, 144, 255), 0 0 10px blue, 0 0 20px rgb(1, 1, 83);
+        filter: blur(5px);
+        transform: rotate(30deg);
+        margin: auto;
+        position: absolute;
+        top: 40px;
+        left: 90px;
+
+    }
+
+    #bg2 {
+        width: 140px;
+        height: 200px;
+        border-radius: 50% 50%;
+        border: rgb(255, 255, 255) solid 2px;
+        filter: blur(3px);
+        transform: rotate(30deg);
+        margin: auto;
+        position: absolute;
+        top: 50px;
+        left: 110px;
+    }
+
+    #bg3 {
+        width: 150px;
+        height: 200px;
+        border-radius: 50% 50%;
+        background: lighten(#241F2C, 10%);
+        background-image: linear-gradient(-45deg, #FFF, rgba(0, 0, 0, 0.5), #FFF, rgba(0, 0, 0, 0.5), #FFF);
+        box-shadow: 0 0 6px rgba(#000, 0.6) inset;
+        transform: rotate(30deg);
+        position: absolute;
+        margin: auto;
+        top: 40px;
+        left: 80px;
+
+    }
+
+    #bg4 {
+        width: 150px;
+        height: 200px;
+        border-radius: 50% 50%;
+        background: rgb(16, 54, 99);
+        background-image: linear-gradient(-45deg, rgba(#FFF, 0.4) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(#FFF, 0.4) 60%, rgba(0, 0, 0, 0.5) 80%, rgba(#FFF, 0.4) 100%);
+        mix-blend-mode: overlay;
+        transform: rotate(30deg);
+        position: absolute;
+        top: 40px;
+        left: 80px;
+    }
+
+    .over {
+        width: 140px;
+        height: 180px;
+        border-radius: 50% 50%;
+        transform: rotate(30deg);
+        overflow: hidden;
+        position: absolute;
+        top: 50px;
+        left: 85px;
+        z-index: 90;
+    }
+
+    .bg-o.img {
+        border-radius: 50% 50%;
+        position: absolute;
+        top: 90px;
+        left: 80px;
+        z-index: 90;
+    }
+
+    #bigclock {
+        width: 300px;
+        height: 300px;
+        margin: 10% auto;
+        position: relative;
+    }
+
+    #hour {
+        position: absolute;
+        width: 10%;
+        height: 6px;
+        background-image: linear-gradient(45deg, #46A3FF 0%, #004B97 50%);
+        top: 50%;
+        left: 40%;
+        transform: rotate(0deg);
+        transform-origin: right center;
+        transform: translate(-50%, -50%);
+        z-index: 96;
+    }
+
+    #minute {
+        position: absolute;
+        width: 30%;
+        height: 4px;
+        background-image: linear-gradient(45deg, #004B97, #46A3FF 80%);
+        top: 50%;
+        left: 50%;
+        transform: rotate(0deg);
+        transform-origin: left center;
+        transform: translate(-50%, -50%);
+        z-index: 97;
+    }
+
+    #second {
+        position: absolute;
+        width: 40%;
+        height: 2px;
+        background-color: pink;
+        filter: blur(4px);
+        transform: rotate(0deg);
+        transform-origin: left center;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        z-index: 97;
+    }
+
+    .circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgb(1, 0, 88);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        filter: blur(1px);
+    }
+
+    .b {
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        font-size: 18px;
+        left: 50%;
+        color: #FFF;
+        border-radius: 2px;
+        text-shadow: 0 0 10px aliceblue;
+        transform: rotate(0deg);
+        transform-origin: 1.5px 150px;
+        transform: translate(-50%, -50%);
+    }
+
+    .b span {
+        display: inline-block;
+    }
+
+    #table {
+        font-family: 微軟正黑體;
+        font-size: 18pt;
+        text-align: center;
+        color: cornsilk;
+        margin: -50px auto;
+        opacity:0.7;
+        text-shadow: 0 0 10px white;
+    }
+
+    .moon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.99);
+    box-shadow: inset 5px 1px 10px -5px rgb(218, 218, 218);
+    position: absolute;
+    animation:moon-move 20s 3 ease-in-out forwards;
+    z-index: 99;
+    }
+
+    @keyframes moon-move{
+        0%{
+            width: 20px;
+            height: 20px;
+            left: 300px;
+            top: 50px;
+        }
+
+        20%{
+            top: 50px;
+        }
+
+        30%{
+            left:180px
+        }
+        50%{
+            width: 150px;
+            height: 150px;
+            box-shadow: inset 20px 1px 35px -15px rgb(218, 218, 218);
+        }
+
+        60%{
+            top: 200px;
+            box-shadow: inset -20px 1px 35px -15px rgb(218, 218, 218);
+        }
+
+        90%{
+            width: 10px;
+            height: 10px;
+            top: 5px;
+            left: -10px;
+            box-shadow: inset -5px 1px 10px -8px rgb(218, 218, 218);
+            opacity:0.9;
+        }
+        100%{
+            width: 15px;
+            height: 15px;
+            left: 100px;
+            top: 70px;
+            opacity:0;
+        }
+    }
+
+
+</style>
+
+<body>
+    <div id="bigclock">
+        <div class="circle"></div>
+        <div id="bg"></div>
+        <div id="bg2"></div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div id="bg3"></div>
+        <div id="bg4"></div>
+        <div class="over">
+            <div class="bg-o" style="width:100%;height:100%;">
+                <img src="galaxy-11098_640.jpg" alt="宇宙圖片" style="width:100%;height:100%;object-fit: cover;">
+            </div>
+        </div>
+        <!-- 我是時間刻度們 -->
+        <div class="b"><span>XII</span></div>
+        <div class="b"><span>I</span></div>
+        <div class="b"><span>II</span></div>
+        <div class="b"><span>III</span></div>
+        <div class="b"><span>IV</span></div>
+        <div class="b"><span>V</span></div>
+        <div class="b"><span>VI</span></div>
+        <div class="b"><span>VII</span></div>
+        <div class="b"><span>VIII</span></div>
+        <div class="b"><span>IX</span></div>
+        <div class="b"><span>X</span></div>
+        <div class="b"><span>XI</span></div>
+
+        <div class="moon"></div>
+
+    </div>
+    <table id="table">
+        <tr>
+            <td id="hour1"></td>
+            <td id="hour2"></td>
+            <td>:</td>
+            <td id="minute1"></td>
+            <td id="minute2"></td>
+            <td>:</td>
+            <td id="second1"></td>
+            <td id="second2"></td>
+        </tr>
+    </table>
+
+
+    <script>
+        const hour = document.getElementById("hour");
+        const minute = document.getElementById("minute");
+        const second = document.getElementById("second");
+
+        const scale = document.getElementsByClassName("b")
+        console.log(scale)
+
+        for (let i = 0; i < 12; i++) {
+            scale[i].style.transform = `rotate(${i * 30 + 30}deg)`
+            scale[i].firstChild.style.transform = `rotate(-${i * 30 + 30}deg)`
+        }
+
+        const setDate = () => {
+            const now = new Date();
+            // 360/12=30 +90用意是 時針建立出來是躺著 0分時 是站著的 之間的90度落差
+            hour.style.transform = `rotate(${now.getHours() * 30 + 90}deg)`;
+            minute.style.transform = `rotate(${now.getMinutes() * 6 + 90}deg)`;
+            second.style.transform = `rotate(${now.getSeconds() * 6 + 90}deg)`;
+        }
+        setDate();
+        setInterval(setDate, 1000);
+
+        const hour1 = document.getElementById("hour1");
+        const hour2 = document.getElementById("hour2");
+        const minute1 = document.getElementById("minute1");
+        const minute2 = document.getElementById("minute2");
+        const second1 = document.getElementById("second1");
+        const second2 = document.getElementById("second2");
+
+        const setTime = () => {
+            let date = new Date();
+            // 除以10用意是若12點除10 只會顯示1 讓他只顯示前面數字
+            hour1.innerText = `${Math.floor(date.getHours() / 10)}`
+            // 讓他除以10的餘數  
+            hour2.innerText = `${Math.floor(date.getHours() % 10)}`
+            minute1.innerText=`${Math.floor(date.getMinutes() / 10)}`
+            minute2.innerText=`${Math.floor(date.getMinutes() % 10)}`
+            second1.innerText=`${Math.floor(date.getSeconds() / 10)}`
+            second2.innerText=`${Math.floor(date.getSeconds() % 10)}`
+        }
+
+        setTime();
+        setInterval(setTime, 1000);
+
+    </script>
+</body>
+
+</html>
